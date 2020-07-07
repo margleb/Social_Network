@@ -83,15 +83,12 @@ if(isset($_POST['register_button'])) {
 
 	if($password != $password2) {
 		array_push($error_array, "Your passwords do not match<br>");
-	}
-	else {
-		if(preg_match('/[^A-Za-z0-9]/', $password)) {
-			array_push($error_array, "Your password can only contain english characters or numbers<br>");
-		}
-	}
-
-	if(strlen($password > 30 || strlen($password) < 5)) {
-		array_push($error_array, "Your password must be betwen 5 and 30 characters<br>");
+	} 
+	if(preg_match('/[^A-Za-z0-9]/', $password)) {
+		array_push($error_array, "Your password can only contain english characters or numbers<br>");
+	} 
+	if(strlen($password) > 30 || strlen($password) < 5) {
+		array_push($error_array, "Your password must be between 5 and 30 characters<br>");
 	}
 
 	if(empty($error_array)) {
@@ -99,7 +96,7 @@ if(isset($_POST['register_button'])) {
 		// Generate username by concatinating first name and last name
 		$username = strtolower($fname . "_".$lname);
 		$check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
-		$i = 0
+		$i = 0;
 		// if username exists add number to username
 		while(mysqli_num_rows($check_username_query) != 0) {
 			$i++; //Add 1 to i
@@ -115,8 +112,9 @@ if(isset($_POST['register_button'])) {
 		} else if($rand==2) {
 			$profile_pic = "assets/images/profile_pic/defaults/head_emerald.png";
 		}
-		
 
+		$query = mysqli_query($con, "INSERT INTO users VALUES ('', '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no',',')");
+		
 	}
 }
 
@@ -154,7 +152,7 @@ if(isset($_POST['register_button'])) {
 		<br>
 		<?php if(in_array("Your passwords do not match<br>", $error_array)) echo "Your passwords do not match<br>";
 		else if(in_array("Your password can only contain english characters or numbers<br>", $error_array)) echo "Your password can only contain english characters or numbers<br>";
-		else if(in_array("Your password must be betwen 5 and 30 characters<br>", $error_array)) echo "Your password must be betwen 5 and 30 characters<br>"; ?>
+		else if(in_array("Your password must be between 5 and 30 characters<br>", $error_array)) echo "Your password must be between 5 and 30 characters<br>"; ?>
 
 		<input type="submit" name="register_button" value="Register">
 	</form>
