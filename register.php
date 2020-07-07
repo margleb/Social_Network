@@ -42,6 +42,18 @@ if(isset($_POST['register_button'])) {
 	$password2 = stript_tags($_POST['reg_password2']);  // Удаляет теги HTML
 	// Дата
 	$date = date("Y-m-d"); // Current date
+
+	if($em == $em2) {
+		// Check if email is in valid format
+		// Фильтрует переменную с помощью определенного фильтра
+		if(filter_var($em, FILTER_VALIDATE_EMAIL)) {
+			$em = filter_var($em, FILTER_VALIDATE_EMAIL);
+		} else {
+			echo "Invaild format";
+		}
+	} else {
+		echo "Emails don't match";
+	}
 }
 
 ?>
