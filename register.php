@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 $con = mysqli_connect("localhost", "root", "", "social");
 
 
@@ -14,7 +17,7 @@ $em2 = ""; // email2
 $password = ""; // password
 $password2 = ""; // password 2
 $date = ""; //Sign up date
-$error_array = ""; //Holds error message
+$error_array = array(); //Holds error message
 
 if(isset($_POST['register_button'])) {
 
@@ -24,18 +27,26 @@ if(isset($_POST['register_button'])) {
 	$fname = strip_tags($_POST['reg_fname']);  // Удаляет теги HTML
 	$fname = str_replace(' ', '', $fname); // Удаляет пробелы
 	$fname = ucfirst(strtolower($fname)); // Первая заглавная буква
+	$_SESSION['reg_fname'] = $fname; // Cохраняем в сессию переменную
+
 	// Last name
-	$fname = strip_tags($_POST['reg_lname']);  // Удаляет теги HTML
-	$fname = str_replace(' ', '', $fname); // Удаляет пробелы
-	$fname = ucfirst(strtolower($fname)); // Первая заглавная буква
+	$lname = strip_tags($_POST['reg_lname']);  // Удаляет теги HTML
+	$lname = str_replace(' ', '', $lname); // Удаляет пробелы
+	$lname = ucfirst(strtolower($lname)); // Первая заглавная буква
+	$_SESSION['reg_lname'] = $lname; // Cохраняем в сессию переменную
+
 	// Email
 	$em = strip_tags($_POST['reg_email']);  // Удаляет теги HTML
 	$em = str_replace(' ', '', $em); // Удаляет пробелы
 	$em = ucfirst(strtolower($em)); // Первая заглавная буква
+	$_SESSION['reg_email'] = $em; // Cохраняем в сессию переменную
+
 	// Email 2
 	$em2 = strip_tags($_POST['reg_email2']);  // Удаляет теги HTML
 	$em2 = str_replace(' ', '', $em2); // Удаляет пробелы
 	$em2 = ucfirst(strtolower($em2)); // Первая заглавная буква
+	$_SESSION['reg_email2'] = $em2; // Cохраняем в сессию переменную
+
 	// Password
 	$password = strip_tags($_POST['reg_password']);  // Удаляет теги HTML
 	$password2 = strip_tags($_POST['reg_password2']);  // Удаляет теги HTML
@@ -54,39 +65,40 @@ if(isset($_POST['register_button'])) {
 			$num_rows = mysqli_num_rows($e_check);
 
 			if($num_rows > 0) {
-				echo 'Email already in use';
+				array_push($error_array, "Email already in use<br>");
+			}
+
+			if($num_rows > 0) {
+				array_push($error_array, "Invalid email format<br>");
 			}
 
 		} else {
-			echo "Invaild format";
+			array_push($error_array, "Email don't match");
 		}
 	} else {
 		echo "Emails don't match";
 	}
 
 	if(strlen($fname) > 25 || strlen($fname) < 2) {
-		echo 'Yout first name must be between 2 and 25 characters';
+		array_push($error_array, "Yout first name must be between 2 and 25 characters");
 	}
 
 	if(strlen($lname) > 25 || strlen($lname) < 2) {
-		echo 'Yout last name must be between 2 and 25 characters';
+		array_push($error_array, "Yout last name must be between 2 and 25 characters");
 	}
 
 	if($password != $password2) {
-		echo 'Your passwords do not match';
+		array_push($error_array, "Your passwords do not match");
 	}
 	else {
 		if(preg_match('/[^A-Za-z0-9]/', $password)) {
-			echo "Your password can only contain english characters or numbers";
+			array_push($error_array, "Your password can only contain english characters or numbers");
 		}
 	}
 
 	if(strlen($password > 30 || strlen($password) < 5)) {
-		echo "Your password must be betwen 5 and 30 characters";
+		array_push($error_array, "Your password must be betwen 5 and 30 characters");
 	}
-
-	
-
 }
 
 ?>
@@ -98,13 +110,13 @@ if(isset($_POST['register_button'])) {
 </head>
 <body>
 	<form action="register.php" method="POST">
-		<input type="text" name="reg_fname" placeholder="First Name" required>
+		<input type="text" name="reg_fname" placeholder="First Name" value="<?php if(isset($_SESSION['reg_fname'])) { echo $_SESSION['reg_fname']; } ?>" required>
 		<br>
-		<input type="text" name="reg_lname" placeholder="Last Name" required>
+		<input type="text" name="reg_lname" placeholder="Last Name" value="<?php if(isset($_SESSION['reg_lname'])) { echo $_SESSION['reg_lname']; } ?>" required>
 		<br>
-		<input type="email" name="reg_email" placeholder="Email" required>
+		<input type="email" name="reg_email" placeholder="Email" value="<?php if(isset($_SESSION['reg_email'])) { echo $_SESSION['reg_email']; } ?>" required>
 		<br>
-		<input type="email" name="reg_email2" placeholder="Confirm Email"required>
+		<input type="email" name="reg_email2" placeholder="Confirm Email" value="<?php if(isset($_SESSION['reg_email2'])) { echo $_SESSION['reg_email2']; } ?>" required>
 		<br>
 		<input type="password" name="reg_password" placeholder="Password" required>
 		<br>
