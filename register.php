@@ -22,24 +22,24 @@ if(isset($_POST['register_button'])) {
 	// Registration form values
 
 	// First name
-	$fname = stript_tags($_POST['reg_fname']);  // Удаляет теги HTML
+	$fname = strip_tags($_POST['reg_fname']);  // Удаляет теги HTML
 	$fname = str_replace(' ', '', $fname); // Удаляет пробелы
 	$fname = ucfirst(strtolower($fname)); // Первая заглавная буква
 	// Last name
-	$fname = stript_tags($_POST['reg_lname']);  // Удаляет теги HTML
+	$fname = strip_tags($_POST['reg_lname']);  // Удаляет теги HTML
 	$fname = str_replace(' ', '', $fname); // Удаляет пробелы
 	$fname = ucfirst(strtolower($fname)); // Первая заглавная буква
 	// Email
-	$em = stript_tags($_POST['reg_email']);  // Удаляет теги HTML
+	$em = strip_tags($_POST['reg_email']);  // Удаляет теги HTML
 	$em = str_replace(' ', '', $em); // Удаляет пробелы
 	$em = ucfirst(strtolower($em)); // Первая заглавная буква
 	// Email 2
-	$em2 = stript_tags($_POST['reg_email2']);  // Удаляет теги HTML
+	$em2 = strip_tags($_POST['reg_email2']);  // Удаляет теги HTML
 	$em2 = str_replace(' ', '', $em2); // Удаляет пробелы
 	$em2 = ucfirst(strtolower($em2)); // Первая заглавная буква
 	// Password
-	$password = stript_tags($_POST['reg_password']);  // Удаляет теги HTML
-	$password2 = stript_tags($_POST['reg_password2']);  // Удаляет теги HTML
+	$password = strip_tags($_POST['reg_password']);  // Удаляет теги HTML
+	$password2 = strip_tags($_POST['reg_password2']);  // Удаляет теги HTML
 	// Дата
 	$date = date("Y-m-d"); // Current date
 
@@ -48,6 +48,16 @@ if(isset($_POST['register_button'])) {
 		// Фильтрует переменную с помощью определенного фильтра
 		if(filter_var($em, FILTER_VALIDATE_EMAIL)) {
 			$em = filter_var($em, FILTER_VALIDATE_EMAIL);
+
+			// Check if email already exists
+			$e_check = mysqli_query($con, "SELECT email FROM users WHERE email='$em'");
+			// Count the number of rows returned
+			$num_rows = mysqli_num_rows($e_check);
+
+			if($num_rows > 0) {
+				echo 'Email already in use';
+			}
+
 		} else {
 			echo "Invaild format";
 		}
