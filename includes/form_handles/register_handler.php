@@ -28,13 +28,13 @@ if(isset($_POST['register_button'])) {
 	// Email
 	$em = strip_tags($_POST['reg_email']);  // Удаляет теги HTML
 	$em = str_replace(' ', '', $em); // Удаляет пробелы
-	$em = ucfirst(strtolower($em)); // Первая заглавная буква
+	$em = strtolower($em); // Первая заглавная буква
 	$_SESSION['reg_email'] = $em; // Cохраняем в сессию переменную
 
 	// Email 2
 	$em2 = strip_tags($_POST['reg_email2']);  // Удаляет теги HTML
 	$em2 = str_replace(' ', '', $em2); // Удаляет пробелы
-	$em2 = ucfirst(strtolower($em2)); // Первая заглавная буква
+	$em2 = strtolower($em2); // Первая заглавная буква
 	$_SESSION['reg_email2'] = $em2; // Cохраняем в сессию переменную
 
 	// Password
