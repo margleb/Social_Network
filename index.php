@@ -9,6 +9,13 @@
 		<?php echo "Likes: " . $user['num_likes']; ?>
 	</div>
 </div>
+	<div class="main_column column">
+		<form class="post_form" action="index.php" method="POST">
+			<textarea name="post_text" placeholder="Got something to say?"></textarea>
+			<input type="submit" name="post" id="post_button" value="Post"><br>
+		</form>
+		<hr>
+	</div>
 </div>
 </body>
 </html>
