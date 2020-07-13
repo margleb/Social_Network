@@ -38,4 +38,14 @@ class User {
 		}
 	}
 
+	public function isFriend($username_to_check) {
+		// хранится в базе данных через запятую
+		$usernameComma = ',' . $username_to_check . ',';
+		// strstr - находит первое вхождение строки
+		if(strstr($this->user['friend_array'], $usernameComma) || $username_to_check = $this->user['username']) {
+			return true;
+		}
+		return false;
+	}
+
 }
