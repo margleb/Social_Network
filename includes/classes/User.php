@@ -1,8 +1,4 @@
 <?php
-
-include('Dump.php');
-
-
 class User {
 	private $user;
 	private $con;
