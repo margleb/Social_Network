@@ -133,7 +133,7 @@ class Post {
 							<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp&nbsp&nbsp;$time_message
 						</div>
 						<div id='post_body'>$body<br></div>
-					</div>";
+					</div><hr>";
 		}
 		echo $str;
 	}
