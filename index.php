@@ -6,7 +6,8 @@
 <?php
 if(isset($_POST['post'])) {
 	$post = new Post($con, $userLoggedIn);
-	$post->submitPost($_POST['post_text'], 'none');	
+	$post->submitPost($_POST['post_text'], 'none');
+	header('Location: index.php'); // позвляет избежать повторной отправки через форму при обновлении
 }
 ?>
 
