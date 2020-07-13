@@ -9,10 +9,13 @@ class Post {
 			$this->user_obj = new User($con, $user);
 	}
 
-
 	public function submitPost($body, $user_to) {
 		$body = strip_tags($body); // removes html tags;
 		$body = mysqli_real_escape_string($this->con, $body); // escape quotes
+
+		$body = str_replace('\r\n', '\n', $body);
+		$body = nl2br($body); // заменяет \n на <br>
+
 		$check_empty = preg_replace('/\s_/', '', $body); // Delete all spaces
 
 		if($check_empty != "") {
