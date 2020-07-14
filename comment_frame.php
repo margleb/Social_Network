@@ -138,6 +138,9 @@
 					
 			}
 		}
+		else {
+			echo "<center><br><br>No comments to Show!</center>";
+		}
 
 		?>
 </body>
