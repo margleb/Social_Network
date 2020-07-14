@@ -51,7 +51,6 @@ if(isset($_POST['post'])) {
 					var page = $('.posts_area').find('.nextPage').val();
 					var noMorePosts = $('.posts_area').find('.noMorePosts').val();
 					if((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false') {
-						alert('yes');
 						$('#loading').show();
 							var ajaxReq = $.ajax({
 								url: "includes/handlers/ajax_load_posts.php",

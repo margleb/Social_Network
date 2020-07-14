@@ -1,4 +1,7 @@
 <?php
+
+require "Dump.php";
+
 class User {
 	private $user;
 	private $con;
@@ -50,7 +53,25 @@ class User {
 		// хранится в базе данных через запятую
 		$usernameComma = ',' . $username_to_check . ',';
 		// strstr - находит первое вхождение строки
-		if(strstr($this->user['friend_array'], $usernameComma) || $username_to_check = $this->user['username']) {
+		if(strstr($this->user['friend_array'], $usernameComma) || $username_to_check == $this->user['username']) {
+			return true;
+		}
+		return false;
+	}
+
+	public function didReciveRequest($user_to) {
+		$user_from = $this->user['username'];
+		$check_request_query = mysqli_query($this->con, "SELECT * FROM friend_request WHERE user_to='$user_to' AND user_from='$user_from'");
+		if(mysqli_num_rows($check_request_query) > 0) {
+			return true;
+		}
+		return false;
+	}
+
+	public function didSendRequest($user_from) {
+		$user_to = $this->user['username'];
+		$check_request_query = mysqli_query($this->con, "SELECT * FROM friend_request WHERE user_to='$user_to' AND user_from='$user_from'");
+		if(mysqli_num_rows($check_request_query) > 0) {
 			return true;
 		}
 		return false;
