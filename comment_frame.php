@@ -1,3 +1,15 @@
+<?php require 'config/config.php'; 
+	include("includes/classes/User.php");
+	include("includes/classes/Post.php");
+
+	if(isset($_SESSION['username'])) {
+		$userLoggedIn = $_SESSION['username'];
+		$user_detail_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
+		$user = mysqli_fetch_array($user_detail_query);
+	} else {
+		header("Location: register.php");
+	} 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,19 +24,6 @@
 			font-family: Arial, Helvetica, Sans-serif;
 		}
 	</style>
-
-	<?php require 'config/config.php'; 
-	include("includes/classes/User.php");
-	include("includes/classes/Post.php");
-
-	if(isset($_SESSION['username'])) {
-		$userLoggedIn = $_SESSION['username'];
-		$user_detail_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
-		$user = mysqli_fetch_array($user_detail_query);
-	} else {
-		header("Location: register.php");
-	} 
-	?>
 	<script>
 		function toggle() {
 			var element = document.getElementById("comment_section");
