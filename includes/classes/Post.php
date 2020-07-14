@@ -106,11 +106,16 @@ class Post {
 
 					<script>
 					function toggle<?php echo $id; ?>() {
-						var element = document.getElementById("toggleComment<?php echo $id; ?>");
-						if(element.style.display == "block") {
-							element.style.display = "none";
-						} else {
-							element.style.display = "block";
+
+						var target = $(event.target);
+
+						if(!target.is('a')) { // если не кликнул на ссылку, то показать коментарии
+							var element = document.getElementById("toggleComment<?php echo $id; ?>");
+							if(element.style.display == "block") {
+								element.style.display = "none";
+							} else {
+								element.style.display = "block";
+							}
 						}
 					}	
 					</script>
