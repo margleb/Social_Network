@@ -6,8 +6,6 @@ if(isset($_SESSION['username'])) {
 } else {
 	header("Location: register.php");
 } ?>
-
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Wekcome to Swirlfeed</title>
