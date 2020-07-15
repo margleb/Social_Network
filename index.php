@@ -1,7 +1,4 @@
 <?php include("includes/header.php");?>
-<?php include("includes/classes/User.php");?>
-<?php include("includes/classes/Post.php");?>
-
 
 <?php
 if(isset($_POST['post'])) {

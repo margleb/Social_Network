@@ -1,4 +1,9 @@
-<?php require 'config/config.php'; 
+<?php 
+require 'config/config.php'; 
+include("includes/classes/User.php");
+include("includes/classes/Post.php");
+
+
 if(isset($_SESSION['username'])) {
 	$userLoggedIn = $_SESSION['username'];
 	$user_detail_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
@@ -11,6 +16,7 @@ if(isset($_SESSION['username'])) {
 	<title>Wekcome to Swirlfeed</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.bundle.js"></script>
+	<script src="assets/js/demo.js"></script>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">

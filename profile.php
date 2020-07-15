@@ -1,7 +1,5 @@
 <?php 
 include("includes/header.php");
-include("includes/classes/User.php");
-include("includes/classes/Post.php");
 
 	if(isset($_GET['profile_username'])) {
 		$username = $_GET['profile_username'];
@@ -96,7 +94,7 @@ include("includes/classes/Post.php");
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Post</button>
+        <button type="button" class="btn btn-primary" name="post_button" id="submit_profile_post">Post</button>
       </div>
     </div>
   </div>
