@@ -16,6 +16,7 @@ if(isset($_SESSION['username'])) {
 	<title>Wekcome to Swirlfeed</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.bundle.js"></script>
+	<script src="assets/js/bootbox.min.js"></script>
 	<script src="assets/js/demo.js"></script>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
