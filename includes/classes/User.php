@@ -104,8 +104,8 @@ class User {
 
 	// общие друзья
 	public function getMutualFriends($user_to_check) {
-		$muturalFriends = 0;
-		$user_array = $this->user['firend_array'];
+		$mutualFriends = 0;
+		$user_array = $this->user['friend_array'];
 		$user_array_explode = explode(",", $user_array);
 
 		$query = mysqli_query($this->con, "SELECT friend_array FROM users WHERE username='$user_to_check'");
@@ -115,7 +115,7 @@ class User {
 		foreach($user_array_explode as $i) {
 			foreach($user_to_check_array_explode as $j) {
 				if($i == $j && $i != '') {
-					$muturalFriends++;
+					$mutualFriends++;
 				}
 			}
 		}

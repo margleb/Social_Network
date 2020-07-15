@@ -1,8 +1,4 @@
-<?php 
-include("includes/header.php");
-include("includes/classes/User.php");
-include("includes/classes/Post.php");
-?>
+<?php include("includes/header.php"); ?>
 
 
 <div class="main_column column id='main_column'">
@@ -23,12 +19,12 @@ include("includes/classes/Post.php");
 
 					$delete_query = mysqli_query($con, "DELETE FROM friend_request WHERE user_to='$userLoggedIn' AND user_from='$user_from'");
 					echo "You are now friends!";
-					header("Location: requests.php");
+					header("Location: request.php");
 				}
 				if(isset($_POST['ignore_request'. $user_from])) {
 					$delete_query = mysqli_query($con, "DELETE FROM friend_request WHERE user_to='$userLoggedIn' AND user_from='$user_from'");
 					echo "Requests ignored!";
-					header("Location: requests.php");
+					header("Location: request.php");
 				}
 				?>
 				<form atction="request.php" method="POST">

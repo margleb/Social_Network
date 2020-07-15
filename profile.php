@@ -63,6 +63,14 @@ include("includes/header.php");
 		</form>
 		<input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post Something">
 
+	<?php
+      	if($userLoggedIn != $username) {
+      		echo '<div class="profile_info_bottom">';
+      		echo $logged_in_user_obj->getMutualFriends($username) . " mutual friends";
+      		echo '</div>';
+      	}
+    ?>
+
 	</div>
 
 	<div class="profile_main_column column">
@@ -92,7 +100,6 @@ include("includes/header.php");
         	</div>
         </form>
       </div>
-
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" name="post_button" id="submit_profile_post">Post</button>
