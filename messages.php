@@ -26,7 +26,7 @@ if($user_to != "new") {
 ?>
 
 <div class="user_details column">
-			<a href="<?php echo $userLoggedIn; ?>"><img src="<?php echo $user['profile_pic']; ?>"></a>
+	<a href="<?php echo $userLoggedIn; ?>"><img src="<?php echo $user['profile_pic']; ?>"></a>
 	<div class="user_details_left_right">
 		<a href="<?php echo $userLoggedIn; ?>"><?php echo $user['first_name'] . " " . $user['last_name']; ?></a>
 		<br>
@@ -66,4 +66,13 @@ if($user_to != "new") {
 		var div = document.getElementById("scroll_messages");
 		div.scrollTop = div.scrollHeight;
 	</script>
+</div>
+
+<div class="user_details column" id="conversactions">
+	<h4>Conversations</h4>
+	<div class="loaded_convesations">
+		<?php echo $message_obj->getConvos(); ?>
+	</div>
+	<br>
+	<a href="message.php?u=new">New Messages</a>
 </div>
