@@ -73,5 +73,5 @@ if($user_to != "new") {
 		<?php echo $message_obj->getConvos(); ?>
 	</div>
 	<br>
-	<a href="message.php?u=new">New Messages</a>
+	<a href="messages.php?u=new">New Messages</a>
 </div>
