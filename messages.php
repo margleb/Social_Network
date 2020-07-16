@@ -67,7 +67,6 @@ if($user_to != "new") {
 		div.scrollTop = div.scrollHeight;
 	</script>
 </div>
-
 <div class="user_details column" id="conversactions">
 	<h4>Conversations</h4>
 	<div class="loaded_convesations">
