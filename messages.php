@@ -51,9 +51,9 @@ if($user_to != "new") {
 		<form action="" method="POST">
 			<?php
 				if($user_to == 'new') {
-					echo "Select the friend you would like to message <br><br>";
-					echo "To: <input type='text' >";
-					echo "<div class='results'></div>";
+					echo "Select the friend you would like to message <br><br>";?>
+					To: <input type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn ?>")' name='q' placeholder='name' autocomplete='off' id='search_text_input'>
+					<?php echo "<div class='results'></div>";
 				}
 				else {
 					echo "<textarea name='message_body' id='message_textarea' placeholder='Write your message...'></textarea>";
