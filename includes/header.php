@@ -45,4 +45,43 @@ if(isset($_SESSION['username'])) {
 	<div class="dropdown_data_window" style="height:0px; border:none;"></div>
 	<input type="hidden" id="dropdown_data_type" value="">
 </div>
+
+
+<script>
+			var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+			$(document).ready(function() {
+				// при прокрутки 
+				$('.dropdown_data_window').scroll(function() {
+					var inner_height = $('.dropdown_data_window').innerHeight(); // Высота контейнера
+					var scroll_top = $('.dropdown_data_window').scrollTop(); // Значение отступа прокрутки сверху
+					var page = $('.dropdown_data_window').find('.nextPageDropdownData').val(); // значение скрытого поля input следующей страницы
+					var noMoreData = $('.dropdown_data_window').find('.noMoreDropdownData').val();
+					if((scroll_top + inner_height >= $('.dropdown_data_window')[0].scrollHeight) && noMoreData == 'false') {
+						var pageName; // Holds name of page to send ajax request to
+						var type = $('#dropdown_data_type').val();
+
+						if(type == 'notification') 
+							pageName = 'ajax_load_notifications.php';
+						else if(type == 'message')
+							pageName = "ajax_load_messages.php";
+
+							var ajaxReq = $.ajax({
+								url: "includes/handlers/" + pageName,
+								type: "POST",
+								data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+								cashe:false,
+								success: function(response) {
+
+									$('.dropdown_data_window').find('.nextPageDropdownData').remove(); // Remove current .nextpage;
+									$('.dropdown_data_window').find('.noMoreDropdownData').remove(); // Remove current .nextpage;
+									$('.dropdown_data_window').append(response);
+								}
+							});	
+					} // end if
+					 return false;
+				});
+			});
+
+	</script>
+
 <div class="wrapper">
