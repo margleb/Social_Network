@@ -161,7 +161,7 @@ textarea:focus {
 }
 
 #comment_iframe {
-	padding: 10px
+	padding: 10px;
 	max-height: 250px;
 	width: 100%;
 }
@@ -480,4 +480,23 @@ textarea:focus {
 	position: absolute;
 	left: 8px;
 	top: -5px;
+}
+
+.resultDisplayNotification {
+	/* background-color: #DDEDFF; */
+	height: auto;
+	color: #1385BD;
+	padding-bottom: 7px;
+}
+
+.resultDisplayNotification img {
+	height: 40px;
+	border-radius: 5px;
+	margin: 1px 12px 0px 2px;
+	float: left;
+}
+
+.timestamp_smaller {
+	font-size: 85%;
+	margin: 0;
 }

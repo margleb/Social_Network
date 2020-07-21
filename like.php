@@ -23,6 +23,7 @@
 	require 'config/config.php'; 
 	include("includes/classes/User.php");
 	include("includes/classes/Post.php");
+	include("includes/classes/Notification.php");
 
 	if(isset($_SESSION['username'])) {
 		$userLoggedIn = $_SESSION['username'];
@@ -40,7 +41,7 @@
 	$get_likes = mysqli_query($con, "SELECT likes, added_by FROM posts WHERE id='$post_id'");
 	$row = mysqli_fetch_array($get_likes);
 	$total_likes = $row['likes'];
-	$user_likes = $row['added_by'];
+	$user_liked = $row['added_by'];
 	$user_detail_query = mysqli_query($con, "SELECT * FROM users WHERE username='$user_likes'");
 	$row = mysqli_fetch_array($user_detail_query);
 	$total_user_likes = $row['num_likes'];
@@ -54,6 +55,10 @@
 		$inert_user = mysqli_query($con, "INSERT INTO likes VALUES('', '$userLoggedIn', '$post_id')");
 
 		//Insert Notification
+		if($user_liked != $userLoggedIn) {
+			$notification = new Notification($con, $userLoggedIn);
+			$notification->insertNotification($post_id, $user_liked, "like");
+		}
 
 	}
 	//Unlike button

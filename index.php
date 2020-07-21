@@ -1,5 +1,4 @@
 <?php include("includes/header.php");?>
-
 <?php
 if(isset($_POST['post'])) {
 	$post = new Post($con, $userLoggedIn);
