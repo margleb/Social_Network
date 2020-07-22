@@ -56,6 +56,19 @@ class User
         return $row['friend_array'];
     }
 
+    public function getFrendArrayByUsername() {
+        $friend_array = explode(',', $this->getFriendArray());
+        if(!empty($friend_array)) {
+            $result_array = array();
+            foreach($friend_array as $username) {
+                if(empty($username)) continue; // пропускает пустые строки в масиве
+                $result_array[] = mysqli_fetch_assoc(mysqli_query($this->con, "SELECT * FROM users WHERE username='$username'"));
+            }
+            file_put_contents('friends.txt', var_export($result_array, 1).'\n', FILE_APPEND);
+            return $result_array;
+        }
+    }
+
     public function isClosed()
     {
         $username = $this->user['username'];

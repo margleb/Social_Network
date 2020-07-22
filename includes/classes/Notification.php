@@ -138,8 +138,9 @@ class Notification
                 }
             }
 
+
             $opened = $row['opened'];
-            $style = (isset($opened) && $opened == 'no') ? "background-color: #DDEDFF;" : "";
+            $style = (isset($row['opened']) && $row['opened'] == 'no') ? "background-color: #DDEDFF;" : "";
 
             $return_string .= "<a href='" . $row['link'] . "'>
 				<div class='resultDisplay resultDisplayNotification' style='" . $style . "'>
@@ -149,6 +150,8 @@ class Notification
 				<p class='timestamp_smaller' id='grey'>" . $time_message . "</p>" . $row['message'] . "
 				</div>
 			</a>";
+
+
         }
 
 

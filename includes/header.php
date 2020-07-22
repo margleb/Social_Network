@@ -58,7 +58,8 @@ if(isset($_SESSION['username'])) {
             //Friend requests
             $user_obj = new User($con, $userLoggedIn);
             $num_requests = $user_obj->getNumberOfFriendRequests();
-
+            //Get full friends array by username
+            $friends_array = $user_obj->getFrendArrayByUsername();
 		?>
 		<a href="<?php echo $userLoggedIn ?>"><?php echo $user['first_name']; ?></i></a>
 		<a href="#"><i class="fa fa-home fa-lg"></i></a>

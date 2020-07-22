@@ -577,3 +577,14 @@ textarea:focus {
 	border-radius: 5px;
 	color: #fff;
 }
+
+.friends_details_left_right img {
+	height: 50px;
+	margin: 0px;
+}
+
+friends_details_left_right a {
+	font-size: 14px;
+	font-style: italic;
+    margin-left: 10px;
+}
