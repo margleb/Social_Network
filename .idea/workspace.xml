@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65d5907d-3a96-4570-9094-ab588fbecd35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/friends.txt" beforeDir="false" afterPath="$PROJECT_DIR$/friends.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friends.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/classes/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +29,7 @@
         <counts>
           <entry key="CSS" value="7" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="42" />
+          <entry key="PHP" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -34,7 +37,7 @@
           <entry key="CSS" value="845" />
           <entry key="HTML" value="94" />
           <entry key="JavaScript" value="1088" />
-          <entry key="PHP" value="9571" />
+          <entry key="PHP" value="11046" />
         </counts>
       </usages-collector>
     </session>
@@ -42,13 +45,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/includes/classes/Post.php">
+        <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="74" selection-start-line="30" selection-start-column="74" selection-end-line="30" selection-end-column="74" />
+            <state relative-caret-position="629">
+              <caret line="49" column="75" selection-start-line="49" selection-start-column="75" selection-end-line="49" selection-end-column="75" />
               <folding>
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,6 +72,10 @@
       <find>input[ty</find>
       <find>.c</find>
       <find>small_profile_pic</find>
+      <find>friends.txt</find>
+      <find>$term</find>
+      <find>post</find>
+      <find>is</find>
     </findStrings>
     <dirStrings>
       <dir>D:\xampp\htdocs\Social_Network</dir>
@@ -87,13 +93,13 @@
         <option value="$PROJECT_DIR$/search.php" />
         <option value="$PROJECT_DIR$/includes/classes/Notification.php" />
         <option value="$PROJECT_DIR$/includes/classes/User.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/header.php" />
         <option value="$PROJECT_DIR$/settings.php" />
         <option value="$PROJECT_DIR$/close_account.php" />
         <option value="$PROJECT_DIR$/assets/css/style.css" />
         <option value="$PROJECT_DIR$/includes/form_handles/settings_handler.php" />
         <option value="$PROJECT_DIR$/includes/classes/Post.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -120,22 +126,6 @@
             <path>
               <item name="Social_Network" type="b2602c69:ProjectViewProjectNode" />
               <item name="Social_Network" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Social_Network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Social_Network" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Social_Network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Social_Network" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Social_Network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Social_Network" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -174,22 +164,22 @@
       <updated>1595317178392</updated>
       <workItem from="1595317180815" duration="14084000" />
       <workItem from="1595341611635" duration="4258000" />
-      <workItem from="1595412859327" duration="6445000" />
+      <workItem from="1595412859327" duration="9488000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24787000" />
+    <option name="totallyTimeSpent" value="27830000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978308" visible="true" weight="0.14818764" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.5021692" side_tool="true" visible="true" weight="0.14818764" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49780703" visible="true" weight="0.15458423" />
+      <window_info id="Structure" order="1" sideWeight="0.502193" side_tool="true" visible="true" weight="0.15458423" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.07809111" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.010845987" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -295,13 +285,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="94" lean-forward="true" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -358,11 +341,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/classes/Post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="74" selection-start-line="30" selection-start-column="74" selection-end-line="30" selection-end-column="74" />
+        <state relative-caret-position="583">
+          <caret line="88" column="37" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/like.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="49" column="75" selection-start-line="49" selection-start-column="75" selection-end-line="49" selection-end-column="75" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
